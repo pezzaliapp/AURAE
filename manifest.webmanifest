@@ -1,0 +1,45 @@
+{
+  "name": "AURÆ · Digital Olfactory Platform",
+  "short_name": "AURÆ",
+  "description": "Concept di piattaforma olfattiva digitale: crea, archivia e condividi fragranze simulate. Prototipo software — nessun odore reale, nessun controllo hardware.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0d0b12",
+  "theme_color": "#0d0b12",
+  "lang": "it",
+  "categories": ["lifestyle", "entertainment", "design"],
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

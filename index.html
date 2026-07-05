@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0b12" />
+  <meta name="description" content="AURÆ — Digital Olfactory Platform. Concept software & hardware per creare, archiviare, condividere e in futuro riprodurre esperienze olfattive digitali. Prototipo: nessun odore reale." />
+  <meta name="author" content="Alessandro Pezzali" />
+  <meta name="color-scheme" content="dark" />
+  <title>AURÆ · Digital Olfactory Platform</title>
+
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <!-- Grana e atmosfera di sfondo -->
+  <div class="atmosphere" aria-hidden="true">
+    <div class="glow glow--amber"></div>
+    <div class="glow glow--rose"></div>
+    <div class="glow glow--teal"></div>
+    <div class="grain"></div>
+  </div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="topbar">
+    <button class="brand" data-goto="home" aria-label="AURÆ — home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="34" height="34">
+          <defs>
+            <radialGradient id="bm" cx="50%" cy="35%" r="70%">
+              <stop offset="0%" stop-color="#f6d488"/>
+              <stop offset="55%" stop-color="#e0913f"/>
+              <stop offset="100%" stop-color="#7a3f86"/>
+            </radialGradient>
+          </defs>
+          <circle cx="24" cy="24" r="21" fill="none" stroke="url(#bm)" stroke-width="2.2"/>
+          <path d="M24 8 C14 20 14 30 24 40 C34 30 34 20 24 8 Z" fill="url(#bm)" opacity="0.9"/>
+          <circle cx="24" cy="26" r="3.4" fill="#0d0b12"/>
+        </svg>
+      </span>
+      <span class="brand__text">
+        <strong>AURÆ</strong>
+        <em>Digital Olfactory Platform</em>
+      </span>
+    </button>
+
+    <div class="topbar__right">
+      <span class="statuslamp" id="net-status" title="Stato connessione">
+        <span class="statuslamp__dot"></span><span class="statuslamp__label">offline-ready</span>
+      </span>
+      <button class="btn btn--ghost btn--sm" data-goto="investors">Investors</button>
+      <button class="btn btn--ghost btn--sm" id="install-btn" hidden>Installa app</button>
+    </div>
+  </header>
+
+  <!-- ===================== DISCLAIMER ===================== -->
+  <div class="safety" role="note">
+    <span class="safety__icon" aria-hidden="true">◈</span>
+    <p>
+      <strong>Concept software.</strong> La versione attuale di AURÆ <u>non</u> emette odori reali,
+      non controlla hardware, non miscela sostanze e non fornisce istruzioni chimiche. È un
+      prototipo <em>software e narrativo</em>.
+    </p>
+    <button class="safety__more" id="safety-more" type="button">perché?</button>
+  </div>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="tabs" role="tablist" aria-label="Sezioni">
+    <button class="tab" role="tab" data-view="home" aria-selected="false">Home</button>
+    <span class="tab-group" aria-hidden="true">Platform</span>
+    <button class="tab" role="tab" data-view="studio" aria-selected="false">Studio</button>
+    <button class="tab" role="tab" data-view="aromi" aria-selected="false">Aromi</button>
+    <button class="tab" role="tab" data-view="archivio" aria-selected="false">Archivio</button>
+    <span class="tab-group" aria-hidden="true">Company</span>
+    <button class="tab" role="tab" data-view="vision" aria-selected="false">Vision</button>
+    <button class="tab" role="tab" data-view="roadmap" aria-selected="false">Roadmap</button>
+    <button class="tab" role="tab" data-view="business" aria-selected="false">Business</button>
+    <button class="tab" role="tab" data-view="investors" aria-selected="false">Investors</button>
+    <button class="tab" role="tab" data-view="team" aria-selected="false">Team</button>
+    <button class="tab" role="tab" data-view="pitch" aria-selected="false">Pitch</button>
+    <button class="tab" role="tab" data-view="device" aria-selected="false">Device</button>
+    <span class="tab-group" aria-hidden="true"></span>
+    <button class="tab" role="tab" data-view="info" aria-selected="false">Info</button>
+  </nav>
+
+  <main class="stage">
+
+    <!-- ==================== VIEW: HOME ==================== -->
+    <section class="view view--home is-active" data-view="home">
+      <div class="hero">
+        <div class="hero__body">
+          <span class="eyebrow">Digital Olfactory Platform</span>
+          <h1 class="hero__title">The future of<br><span class="grad">digital scent.</span></h1>
+          <p class="hero__lead">
+            AURÆ è un concept software &amp; hardware che immagina una futura piattaforma per
+            <strong>creare</strong>, <strong>archiviare</strong>, <strong>condividere</strong> e,
+            in prospettiva, <strong>riprodurre</strong> esperienze olfattive digitali.
+          </p>
+          <div class="hero__cta">
+            <button class="btn btn--primary btn--lg" data-goto="studio">Prova la demo live</button>
+            <button class="btn btn--ghost btn--lg" data-goto="vision">Scopri la visione</button>
+          </div>
+          <p class="hero__disclaimer">
+            La versione attuale è un prototipo concettuale: <u>non</u> emette odori reali e non
+            controlla hardware o sostanze.
+          </p>
+        </div>
+        <div class="hero__aside" aria-hidden="true">
+          <div class="orb-stack">
+            <span class="orb orb--a"></span><span class="orb orb--b"></span>
+            <span class="orb orb--c"></span><span class="orb orb--d"></span>
+            <div class="orb-core">◈</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="statstrip">
+        <div class="stat"><b>Stage</b><span>Concept · Pre-seed</span></div>
+        <div class="stat"><b>Prodotto</b><span>PWA installabile · offline</span></div>
+        <div class="stat"><b>Aromi base</b><span>16 profili simulati</span></div>
+        <div class="stat"><b>Dipendenze</b><span>0 esterne · vanilla JS</span></div>
+      </div>
+
+      <div class="homecards">
+        <button class="hcard" data-goto="vision"><span class="hcard__k">01</span><h3>Vision</h3><p>Perché l'olfatto digitale può diventare un nuovo canale di comunicazione.</p><span class="hcard__go">→</span></button>
+        <button class="hcard" data-goto="roadmap"><span class="hcard__k">02</span><h3>Roadmap</h3><p>Dal concept software 2026 al marketplace di ricette olfattive 2030.</p><span class="hcard__go">→</span></button>
+        <button class="hcard" data-goto="business"><span class="hcard__k">03</span><h3>Business</h3><p>Hardware, ricariche, marketplace, licenze B2B e SDK immersivi.</p><span class="hcard__go">→</span></button>
+        <button class="hcard" data-goto="device"><span class="hcard__k">04</span><h3>Device concept</h3><p>Il possibile dispositivo futuro con cartucce sostituibili e app collegata.</p><span class="hcard__go">→</span></button>
+        <button class="hcard" data-goto="pitch"><span class="hcard__k">05</span><h3>Pitch</h3><p>Problema, soluzione, mercato e vantaggio iniziale in una pagina.</p><span class="hcard__go">→</span></button>
+        <button class="hcard hcard--accent" data-goto="investors"><span class="hcard__k">06</span><h3>Investors</h3><p>Cerchiamo investitori early-stage, incubatori e partner industriali.</p><span class="hcard__go">→</span></button>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW: STUDIO ==================== -->
+    <section class="view view--studio" data-view="studio">
+      <div class="section-head">
+        <span class="eyebrow">Live demo</span>
+        <h2 class="section-title">Studio olfattivo</h2>
+        <p class="section-sub">Componi una fragranza simulata. Tutto ciò che vedi è visivo e narrativo — nessun odore reale.</p>
+      </div>
+      <div class="studio-grid">
+
+        <!-- Colonna 1: vassoio aromi -->
+        <div class="panel panel--tray">
+          <div class="panel__head">
+            <h2>Vassoio aromi</h2>
+            <p class="panel__hint">Tocca un aroma per aggiungerlo alla miscela</p>
+          </div>
+          <div class="tray" id="tray"><!-- popolato via JS --></div>
+        </div>
+
+        <!-- Colonna 2: dispositivo / diffusore virtuale -->
+        <div class="panel panel--device">
+          <div class="device">
+            <div class="device__frame">
+              <div class="device__screen">
+                <div class="diffuser" id="diffuser">
+                  <div class="diffuser__halo" id="diffuser-halo"></div>
+                  <div class="diffuser__core" id="diffuser-core">
+                    <span class="diffuser__mood" id="mood-name">—</span>
+                    <span class="diffuser__caption" id="mood-caption">Miscela vuota</span>
+                  </div>
+                  <div class="vapor" id="vapor" aria-hidden="true"></div>
+                </div>
+              </div>
+              <div class="device__cartridges" id="cartridges" aria-hidden="true"><!-- JS --></div>
+              <div class="device__controls">
+                <button class="btn btn--release" id="release-btn" disabled>
+                  <span class="btn__pulse"></span>Rilascio virtuale
+                </button>
+              </div>
+            </div>
+            <p class="device__note">Simulazione — nessuna diffusione fisica avviene.</p>
+          </div>
+        </div>
+
+        <!-- Colonna 3: composizione + analisi -->
+        <div class="panel panel--mix">
+          <div class="panel__head">
+            <input class="recipe-name" id="recipe-name" type="text"
+                   placeholder="Nome della fragranza…" maxlength="40"
+                   aria-label="Nome della fragranza" />
+          </div>
+
+          <div class="mixlist" id="mixlist">
+            <p class="mixlist__empty" id="mix-empty">Nessun aroma selezionato. Il tuo laboratorio è pronto.</p>
+          </div>
+
+          <div class="analysis" id="analysis" hidden>
+            <div class="analysis__radar">
+              <svg id="radar" viewBox="0 0 220 220" width="100%" height="100%" role="img"
+                   aria-label="Grafico radar del profilo olfattivo"></svg>
+            </div>
+
+            <div class="metrics">
+              <div class="metric"><span class="metric__k">Intensità</span>
+                <span class="meter"><i id="m-intensity"></i></span></div>
+              <div class="metric"><span class="metric__k">Persistenza</span>
+                <span class="meter"><i id="m-persistence"></i></span></div>
+              <div class="metric"><span class="metric__k">Complessità</span>
+                <span class="meter"><i id="m-complexity"></i></span></div>
+            </div>
+
+            <div class="pyramid" id="pyramid">
+              <div class="pyramid__row"><span>Testa</span><span class="pyramid__bar"><i data-layer="testa"></i></span><b id="p-testa">0%</b></div>
+              <div class="pyramid__row"><span>Cuore</span><span class="pyramid__bar"><i data-layer="cuore"></i></span><b id="p-cuore">0%</b></div>
+              <div class="pyramid__row"><span>Fondo</span><span class="pyramid__bar"><i data-layer="fondo"></i></span><b id="p-fondo">0%</b></div>
+            </div>
+
+            <div class="codebox">
+              <label for="recipe-code">Codice ricetta</label>
+              <div class="codebox__row">
+                <input id="recipe-code" type="text" readonly value="" />
+                <button class="btn btn--ghost btn--sm" id="copy-code">Copia</button>
+              </div>
+            </div>
+
+            <div class="mix-actions">
+              <button class="btn btn--primary" id="save-btn">Salva in archivio</button>
+              <button class="btn btn--ghost" id="share-btn">Scheda</button>
+              <button class="btn btn--ghost" id="clear-btn">Svuota</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== VIEW: AROMI ==================== -->
+    <section class="view view--aromi" data-view="aromi">
+      <div class="section-head">
+        <span class="eyebrow">Library</span>
+        <h2 class="section-title">Libreria di aromi base</h2>
+        <p class="section-sub">Profili descrittivi e narrativi — nessuna formula reale, nessun dosaggio reale.</p>
+      </div>
+      <div class="panel">
+        <div class="aroma-gallery" id="aroma-gallery"><!-- JS --></div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW: ARCHIVIO ==================== -->
+    <section class="view view--archivio" data-view="archivio">
+      <div class="section-head">
+        <span class="eyebrow">Storage</span>
+        <h2 class="section-title">Archivio locale</h2>
+        <p class="section-sub">Le tue ricette restano solo su questo dispositivo. Nessun account, nessun server.</p>
+      </div>
+      <div class="panel">
+        <div class="panel__head panel__head--split">
+          <div>
+            <h2>Le tue ricette</h2>
+            <p class="panel__hint" id="archive-sub">Salvate solo su questo dispositivo.</p>
+          </div>
+          <div class="archive-tools">
+            <button class="btn btn--ghost btn--sm" id="import-btn">Importa codice</button>
+            <button class="btn btn--ghost btn--sm" id="export-btn">Esporta backup</button>
+          </div>
+        </div>
+        <div class="archive-list" id="archive-list"><!-- JS --></div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW: VISION ==================== -->
+    <section class="view view--vision" data-view="vision">
+      <div class="section-head">
+        <span class="eyebrow">Vision</span>
+        <h2 class="section-title">L'olfatto è il senso più legato a memoria ed emozione.<br>Ma è ancora assente dal digitale.</h2>
+        <p class="section-sub">
+          Comunichiamo con testo, immagini e suono. L'odore — il senso che attiva più direttamente
+          ricordi ed emozioni — resta fuori dallo schermo. AURÆ immagina il livello software e i
+          protocolli necessari per portarlo, un giorno, nell'esperienza digitale.
+        </p>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature">
+          <span class="feature__ico">🧠</span>
+          <h3>Memoria &amp; emozione</h3>
+          <p>L'olfatto raggiunge il sistema limbico quasi senza filtri: un profumo può riportare un ricordo in un istante. È il canale emotivo più potente e meno sfruttato.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__ico">🎓</span>
+          <h3>Formazione sensoriale</h3>
+          <p>Sommelier, profumieri, chef e degustatori si allenano sull'olfatto. Un livello digitale può standardizzare, archiviare e condividere riferimenti olfattivi.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__ico">🌐</span>
+          <h3>Esperienze immersive</h3>
+          <p>VR, musei e narrazione interattiva cercano presenza. L'olfatto aggiunge una dimensione che oggi manca del tutto agli ambienti digitali.</p>
+        </div>
+      </div>
+
+      <h3 class="block-title">Settori potenziali</h3>
+      <div class="sectors">
+        <span class="sector">🌸 Profumeria</span>
+        <span class="sector">🍷 Vino &amp; sommelier</span>
+        <span class="sector">☕ Caffè &amp; tè</span>
+        <span class="sector">🍳 Cucina</span>
+        <span class="sector">🏛️ Musei</span>
+        <span class="sector">🕶️ Realtà virtuale</span>
+        <span class="sector">🎮 Videogiochi</span>
+        <span class="sector">📣 Marketing esperienziale</span>
+        <span class="sector">🎓 Formazione</span>
+        <span class="sector">🌿 Benessere &amp; memoria sensoriale</span>
+      </div>
+
+      <div class="cta-band">
+        <p>Un canale sensoriale nuovo apre categorie di prodotto ancora inesistenti.</p>
+        <button class="btn btn--primary" data-goto="pitch">Leggi il pitch</button>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW: ROADMAP ==================== -->
+    <section class="view view--roadmap" data-view="roadmap">
+      <div class="section-head">
+        <span class="eyebrow">Roadmap</span>
+        <h2 class="section-title">Dal software concept alla piattaforma</h2>
+        <p class="section-sub">Un percorso a tappe: prima l'esperienza software, poi la ricerca di partner, poi l'hardware.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="tl"><span class="tl__year">2026</span><div class="tl__body"><span class="tl__tag tl__tag--now">Ora</span><h3>Concept software PWA</h3><p>Esperienza installabile e offline per comporre, archiviare e condividere fragranze simulate. Validazione dell'interfaccia e della narrazione.</p></div></li>
+        <li class="tl"><span class="tl__year">2027</span><div class="tl__body"><h3>Ricerca partner tecnici e scientifici</h3><p>Coinvolgimento di esperti di fragranze, ingegneri elettronici ed embedded, centri di ricerca universitari.</p></div></li>
+        <li class="tl"><span class="tl__year">2027</span><div class="tl__body"><h3>Primo proof of concept elettronico</h3><p>Esplorazione di fattibilità di un modulo di rilascio controllato — valutata insieme a partner qualificati.</p></div></li>
+        <li class="tl"><span class="tl__year">2028</span><div class="tl__body"><h3>Prototipo Bluetooth con cartucce sostituibili</h3><p>Dispositivo collegato all'app, con cartucce simulate/sostituibili come unità intercambiabili del sistema.</p></div></li>
+        <li class="tl"><span class="tl__year">2028</span><div class="tl__body"><h3>Test verticali</h3><p>Pilot con profumeria, vino, cucina e musei per validare casi d'uso e valore percepito.</p></div></li>
+        <li class="tl"><span class="tl__year">2029</span><div class="tl__body"><h3>SDK e API per esperienze immersive</h3><p>Strumenti per sviluppatori di VR, videogiochi e installazioni per integrare "tracce olfattive".</p></div></li>
+        <li class="tl"><span class="tl__year">2030</span><div class="tl__body"><h3>Marketplace di ricette olfattive digitali</h3><p>Un ecosistema dove creatori e brand pubblicano, distribuiscono e monetizzano fragranze digitali.</p></div></li>
+      </ol>
+
+      <p class="fineprint">Le date sono <strong>ipotesi progettuali</strong>, non promesse commerciali. Ogni fase hardware sarà valutata con partner e consulenti qualificati.</p>
+    </section>
+
+    <!-- ==================== VIEW: BUSINESS ==================== -->
+    <section class="view view--business" data-view="business">
+      <div class="section-head">
+        <span class="eyebrow">Business model</span>
+        <h2 class="section-title">Possibili fonti di ricavo future</h2>
+        <p class="section-sub">Un modello ibrido hardware + software + marketplace, tipico delle piattaforme di nuovo canale.</p>
+      </div>
+
+      <div class="biz-grid">
+        <div class="bizcard"><span class="bizcard__ico">📦</span><h3>Dispositivo hardware</h3><p>Vendita del device olfattivo collegato — il punto d'ingresso nell'ecosistema.</p></div>
+        <div class="bizcard"><span class="bizcard__ico">🔁</span><h3>Cartucce &amp; ricariche</h3><p>Modello a consumo ricorrente con unità sostituibili del sistema.</p></div>
+        <div class="bizcard"><span class="bizcard__ico">🛒</span><h3>Marketplace di fragranze digitali</h3><p>Commissioni sulle ricette olfattive pubblicate da creatori e brand.</p></div>
+        <div class="bizcard"><span class="bizcard__ico">🏢</span><h3>Licenze B2B</h3><p>Musei, retail e hospitality che integrano esperienze olfattive su misura.</p></div>
+        <div class="bizcard"><span class="bizcard__ico">🧩</span><h3>SDK per VR, musei &amp; game</h3><p>Licenze per sviluppatori che aggiungono l'olfatto alle esperienze immersive.</p></div>
+        <div class="bizcard"><span class="bizcard__ico">🤝</span><h3>Partnership con brand</h3><p>Collaborazioni con case di profumeria e marchi per fragranze firmate.</p></div>
+        <div class="bizcard"><span class="bizcard__ico">🎓</span><h3>Formazione professionale</h3><p>Percorsi per sommelier, profumieri e degustatori basati su riferimenti digitali.</p></div>
+      </div>
+      <p class="fineprint">Modello illustrativo di un concept pre-seed. Nessun ricavo è attivo oggi.</p>
+    </section>
+
+    <!-- ==================== VIEW: INVESTORS ==================== -->
+    <section class="view view--investors" data-view="investors">
+      <div class="section-head">
+        <span class="eyebrow">Investors &amp; partners</span>
+        <h2 class="section-title">Costruiamo insieme un nuovo canale sensoriale</h2>
+        <p class="section-sub">AURÆ è un concept in fase iniziale in cerca dei giusti compagni di viaggio, tecnici e finanziari.</p>
+      </div>
+
+      <div class="inv-grid">
+        <div class="panel inv-panel">
+          <h3>AURÆ is seeking</h3>
+          <ul class="ticklist">
+            <li>Early-stage investors</li>
+            <li>Incubators &amp; accelerators</li>
+            <li>Hardware partners</li>
+            <li>Fragrance experts</li>
+            <li>Electronic engineers</li>
+            <li>Embedded developers</li>
+            <li>Industrial designers</li>
+            <li>University &amp; research partners</li>
+          </ul>
+        </div>
+
+        <div class="panel inv-cta">
+          <h3>Interested in exploring AURÆ?</h3>
+          <p>Se questa visione risuona con te — come investitore, incubatore o partner industriale — parliamone.</p>
+          <div class="contact">
+            <span class="contact__k">Contact</span>
+            <span class="contact__v">Alessandro Pezzali</span>
+            <a class="contact__mail" href="mailto:info@alessandropezzali.it">info@alessandropezzali.it</a>
+          </div>
+          <button class="btn btn--primary btn--lg" data-goto="pitch">Vedi il pitch</button>
+        </div>
+      </div>
+
+      <div class="ip-note">
+        <h3>Proprietà intellettuale</h3>
+        <p><strong>© 2026 Alessandro Pezzali. All rights reserved.</strong></p>
+        <p>AURÆ concept, software prototype, interface, workflow, visual identity and documentation are created by Alessandro Pezzali.</p>
+        <ul>
+          <li>Il copyright protegge <strong>codice, testi, interfaccia, design, documentazione</strong> e contenuti originali.</li>
+          <li>L'idea generale di "odore digitale" <strong>non</strong> è rivendicata come invenzione brevettata.</li>
+          <li>Eventuali sviluppi hardware futuri dovranno essere valutati con <strong>consulenti di proprietà industriale</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW: TEAM ==================== -->
+    <section class="view view--team" data-view="team">
+      <div class="section-head">
+        <span class="eyebrow">Team</span>
+        <h2 class="section-title">Un fondatore, una visione aperta</h2>
+        <p class="section-sub">AURÆ nasce come progetto indipendente e cerca le competenze per diventare realtà.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="founder">
+          <div class="founder__avatar" aria-hidden="true">AP</div>
+          <div class="founder__info">
+            <h3>Alessandro Pezzali</h3>
+            <p class="founder__role">Founder · Independent developer &amp; concept creator</p>
+            <p class="founder__loc">Italy</p>
+            <p>Ideazione del concept, prototipo software, interfaccia, workflow e identità visiva di AURÆ.</p>
+          </div>
+        </div>
+
+        <div class="panel roles">
+          <h3>Looking for</h3>
+          <div class="rolechips">
+            <span class="chip chip--role">Electronics engineer</span>
+            <span class="chip chip--role">Fragrance chemist</span>
+            <span class="chip chip--role">Embedded developer</span>
+            <span class="chip chip--role">Industrial designer</span>
+            <span class="chip chip--role">Startup advisor</span>
+            <span class="chip chip--role">Legal / IP advisor</span>
+          </div>
+          <button class="btn btn--primary" data-goto="investors">Come contribuire</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW: PITCH ==================== -->
+    <section class="view view--pitch" data-view="pitch">
+      <div class="section-head">
+        <span class="eyebrow">Pitch</span>
+        <h2 class="section-title">AURÆ in una pagina</h2>
+        <p class="section-sub">Sintesi pronta da trasferire in un pitch deck.</p>
+      </div>
+
+      <div class="pitch-grid">
+        <div class="pitchcard"><span class="pitchcard__n">Problema</span><p>L'olfatto è il senso più legato a memoria ed emozione, ma è completamente assente dalla comunicazione digitale. Manca uno standard software per rappresentarlo, archiviarlo e condividerlo.</p></div>
+        <div class="pitchcard"><span class="pitchcard__n">Soluzione</span><p>Una piattaforma olfattiva digitale: software per creare e condividere "ricette" di profumo, con un futuro dispositivo a cartucce per riprodurle. Oggi: il livello software e l'esperienza.</p></div>
+        <div class="pitchcard"><span class="pitchcard__n">Perché ora</span><p>Crescono VR, esperienze immersive, retail sensoriale e formazione digitale. L'elettronica di consumo e i modelli a cartuccia sono maturi. Il canale olfattivo è l'ultimo ancora vuoto.</p></div>
+        <div class="pitchcard"><span class="pitchcard__n">Mercato potenziale</span><p>Profumeria, food &amp; beverage, musei, VR/gaming, marketing esperienziale, formazione e benessere: verticali ampi che condividono lo stesso livello tecnologico.</p></div>
+        <div class="pitchcard"><span class="pitchcard__n">Vantaggio iniziale</span><p>Concept, interfaccia, workflow e identità già definiti e protetti da copyright. Un prototipo funzionante che rende tangibile la visione fin da subito.</p></div>
+        <div class="pitchcard"><span class="pitchcard__n">Prossimi passi</span><p>Partner tecnici e scientifici, proof of concept elettronico, pilot verticali e definizione di SDK/marketplace. Ricerca di investitori early-stage e incubatori.</p></div>
+      </div>
+
+      <div class="cta-band">
+        <p>Vuoi la versione testuale da copiare?</p>
+        <button class="btn btn--ghost" id="copy-pitch">Copia il pitch</button>
+        <button class="btn btn--primary" data-goto="investors">Parla con noi</button>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW: DEVICE CONCEPT ==================== -->
+    <section class="view view--device-concept" data-view="device">
+      <div class="section-head">
+        <span class="eyebrow">Future hardware concept</span>
+        <h2 class="section-title">Il dispositivo, immaginato</h2>
+        <p class="section-sub">Un rendering concettuale — puramente grafico, <strong>non</strong> tecnico né operativo.</p>
+      </div>
+
+      <div class="device-concept">
+        <div class="dc-visual" aria-label="Mockup concettuale del dispositivo AURÆ">
+          <svg viewBox="0 0 520 360" width="100%" role="img" aria-label="Dispositivo AURÆ con cartucce, luce di stato e app collegata">
+            <defs>
+              <linearGradient id="dcBody" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2a2334"/><stop offset="100%" stop-color="#15121c"/>
+              </linearGradient>
+              <radialGradient id="dcFlow" cx="50%" cy="100%" r="90%">
+                <stop offset="0%" stop-color="#f3d08a" stop-opacity="0.8"/><stop offset="100%" stop-color="#f3d08a" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="dcPhone" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#201a2a"/><stop offset="100%" stop-color="#0f0d15"/>
+              </linearGradient>
+            </defs>
+
+            <!-- flusso virtuale -->
+            <ellipse cx="170" cy="60" rx="60" ry="70" fill="url(#dcFlow)" opacity="0.5"/>
+            <g class="dc-flow" fill="none" stroke="#f3d08a" stroke-width="3" stroke-linecap="round" opacity="0.65">
+              <path d="M150 150 q-16 -40 6 -78"/>
+              <path d="M170 150 q0 -44 0 -86"/>
+              <path d="M190 150 q16 -40 -6 -78"/>
+            </g>
+
+            <!-- corpo dispositivo -->
+            <rect x="70" y="150" width="200" height="150" rx="26" fill="url(#dcBody)" stroke="rgba(243,208,138,0.28)" stroke-width="1.5"/>
+            <rect x="70" y="150" width="200" height="150" rx="26" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+            <!-- cartucce -->
+            <g>
+              <rect x="96"  y="196" width="30" height="74" rx="8" fill="#e7c948" opacity="0.85"/>
+              <rect x="136" y="196" width="30" height="74" rx="8" fill="#e86a8f" opacity="0.85"/>
+              <rect x="176" y="196" width="30" height="74" rx="8" fill="#b07d52" opacity="0.85"/>
+              <rect x="216" y="196" width="30" height="74" rx="8" fill="#6fcf97" opacity="0.85"/>
+              <g fill="rgba(0,0,0,0.25)">
+                <rect x="96" y="196" width="30" height="10" rx="5"/><rect x="136" y="196" width="30" height="10" rx="5"/>
+                <rect x="176" y="196" width="30" height="10" rx="5"/><rect x="216" y="196" width="30" height="10" rx="5"/>
+              </g>
+            </g>
+
+            <!-- luce di stato -->
+            <circle class="dc-led" cx="170" cy="172" r="6" fill="#6fcf97"/>
+            <circle cx="170" cy="172" r="11" fill="none" stroke="#6fcf97" stroke-opacity="0.4" stroke-width="1.5"/>
+
+            <!-- app collegata (telefono) -->
+            <rect x="330" y="120" width="120" height="210" rx="22" fill="url(#dcPhone)" stroke="rgba(243,208,138,0.28)" stroke-width="1.5"/>
+            <rect x="344" y="140" width="92" height="170" rx="12" fill="#08060c"/>
+            <circle cx="390" cy="200" r="30" fill="none" stroke="#e0a24a" stroke-width="2" opacity="0.7"/>
+            <path d="M390 176 c-12 18 -12 30 0 46 c12 -16 12 -28 0 -46 Z" fill="#e0a24a" opacity="0.85"/>
+            <rect x="360" y="252" width="60" height="6" rx="3" fill="rgba(243,208,138,0.35)"/>
+            <rect x="360" y="266" width="44" height="6" rx="3" fill="rgba(243,208,138,0.2)"/>
+
+            <!-- link app ↔ device (bluetooth) -->
+            <line x1="272" y1="225" x2="328" y2="225" stroke="rgba(243,208,138,0.4)" stroke-width="2" stroke-dasharray="4 5"/>
+            <text x="300" y="216" fill="#7d7466" font-size="10" font-family="ui-monospace,monospace" text-anchor="middle">BLE</text>
+          </svg>
+          <span class="dc-badge">future hardware concept</span>
+        </div>
+
+        <div class="dc-legend">
+          <h3>Elementi immaginati</h3>
+          <ul class="ticklist">
+            <li><b>Corpo dispositivo</b> — unità da tavolo, silenziosa, collegata.</li>
+            <li><b>Cartucce sostituibili</b> — unità intercambiabili del sistema.</li>
+            <li><b>Luce di stato</b> — feedback visivo dell'attività.</li>
+            <li><b>Flusso virtuale</b> — indicazione grafica del rilascio.</li>
+            <li><b>App collegata</b> — controllo e libreria dallo smartphone.</li>
+          </ul>
+          <p class="fineprint">Rappresentazione artistica di un concept. Non include schemi costruttivi, componenti reali né istruzioni operative. La versione attuale non controlla alcun hardware.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW: INFO ==================== -->
+    <section class="view view--info" data-view="info">
+      <div class="panel prose">
+        <span class="eyebrow">Info &amp; safety</span>
+        <h2>Cos'è AURÆ</h2>
+        <p>
+          AURÆ è un <strong>concept di Digital Olfactory Platform</strong>: un prototipo software e
+          narrativo che immagina come potrebbe apparire una futura piattaforma per creare,
+          archiviare, condividere e — in prospettiva — riprodurre esperienze olfattive digitali.
+        </p>
+        <div class="callout callout--warn">
+          <h3>Cosa NON fa la versione attuale (per progetto)</h3>
+          <ul>
+            <li>Non emette, diffonde o produce alcun odore reale.</li>
+            <li>Non controlla, dosa o miscela sostanze chimiche.</li>
+            <li>Non pilota diffusori, hardware o dispositivi fisici.</li>
+            <li>Non fornisce istruzioni per costruire diffusori o manipolare composti chimici.</li>
+          </ul>
+          <p>È un'esperienza di design e storytelling: tutti i numeri sono estetici.</p>
+        </div>
+
+        <h3>Come funziona la simulazione</h3>
+        <p>
+          Ogni aroma ha un <em>profilo</em> immaginario su sei assi (agrumato, floreale, legnoso,
+          speziato, fresco, dolce) e una posizione nella <em>piramide olfattiva</em> (testa, cuore,
+          fondo). Aggiungendo "gocce" virtuali, AURÆ calcola una media ponderata per stimare colore,
+          intensità e carattere della miscela. È matematica su dati fittizi, nient'altro.
+        </p>
+
+        <h3>Privacy</h3>
+        <p>
+          Nessun account, nessun backend, nessuna telemetria. Le ricette vivono solo nel
+          <code>localStorage</code> del tuo browser. Funziona offline dopo la prima visita.
+        </p>
+
+        <h3>Proprietà intellettuale</h3>
+        <p><strong>© 2026 Alessandro Pezzali. All rights reserved.</strong></p>
+        <p>AURÆ concept, software prototype, interface, workflow, visual identity and documentation are created by Alessandro Pezzali.</p>
+        <ul>
+          <li>Il copyright protegge codice, testi, interfaccia, design, documentazione e contenuti originali.</li>
+          <li>L'idea generale di "odore digitale" non è rivendicata come invenzione brevettata.</li>
+          <li>Eventuali sviluppi hardware futuri dovranno essere valutati con consulenti di proprietà industriale.</li>
+        </ul>
+
+        <h3>Tecnologia</h3>
+        <p>PWA installabile · HTML/CSS/JS vanilla · Service Worker · zero dipendenze esterne.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== TOAST / MODALI ===================== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__x" data-close aria-label="Chiudi">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="foot__row">
+      <span class="foot__brand">AURÆ · Digital Olfactory Platform</span>
+      <nav class="foot__links">
+        <button class="foot__link" data-goto="vision">Vision</button>
+        <button class="foot__link" data-goto="roadmap">Roadmap</button>
+        <button class="foot__link" data-goto="investors">Investors</button>
+        <button class="foot__link" data-goto="info">Info &amp; safety</button>
+      </nav>
+    </div>
+    <p class="foot__legal">© 2026 Alessandro Pezzali. All rights reserved. · Concept software prototype — nessun odore reale, nessun controllo hardware.</p>
+  </footer>
+
+  <!-- Ordine di caricamento: dati → logica → storage → app -->
+  <script src="./js/aromas.js"></script>
+  <script src="./js/mixer.js"></script>
+  <script src="./js/store.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
